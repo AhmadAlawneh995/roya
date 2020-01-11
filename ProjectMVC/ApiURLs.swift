@@ -12,5 +12,4 @@ struct ApiURLs {
     static let domain = "https://stg.roya.tv/api/"
     static let home = "homepage"
     static let programs = "programs"
-
 }
