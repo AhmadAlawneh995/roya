@@ -40,11 +40,19 @@
 		06334C2423C8C45400872D8D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06334C2323C8C45400872D8D /* LiveViewController.swift */; };
 		06334C2623C8C46A00872D8D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06334C2523C8C46A00872D8D /* SearchViewController.swift */; };
 		06334C2823C8C47E00872D8D /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06334C2723C8C47E00872D8D /* NotificationsViewController.swift */; };
+		06767EFE23DA531D00BB546A /* TopViewPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06767EFD23DA531D00BB546A /* TopViewPagerViewController.swift */; };
+		06767F0423DA539800BB546A /* ViewPagerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06767F0223DA539800BB546A /* ViewPagerCollectionViewCell.swift */; };
+		06767F0523DA539800BB546A /* ViewPagerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06767F0323DA539800BB546A /* ViewPagerCollectionViewCell.xib */; };
+		06767F0723DA562E00BB546A /* ViewPagerExetenctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06767F0623DA562E00BB546A /* ViewPagerExetenctions.swift */; };
+		06767F0A23DB068300BB546A /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06767F0923DB068300BB546A /* SubCategoryViewController.swift */; };
+		06767F0E23DB06E100BB546A /* SubCategoryViewControllerExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06767F0D23DB06E100BB546A /* SubCategoryViewControllerExtentions.swift */; };
+		06767F1423DB077000BB546A /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06767F1223DB077000BB546A /* SubCategoryCollectionViewCell.swift */; };
+		06767F1523DB077000BB546A /* SubCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06767F1323DB077000BB546A /* SubCategoryCollectionViewCell.xib */; };
 		A35B42024577AF0583E7B640 /* Pods_ProjectMVC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B624FCA2939AD372DEA1C3B0 /* Pods_ProjectMVC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06252F8123C7246F0091FCCC /* ProjectMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06252F8123C7246F0091FCCC /* Roya TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roya TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06252F8423C7246F0091FCCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06252F8623C7246F0091FCCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		06252F8823C7246F0091FCCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +87,14 @@
 		06334C2323C8C45400872D8D /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		06334C2523C8C46A00872D8D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		06334C2723C8C47E00872D8D /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		06767EFD23DA531D00BB546A /* TopViewPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewPagerViewController.swift; sourceTree = "<group>"; };
+		06767F0223DA539800BB546A /* ViewPagerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPagerCollectionViewCell.swift; sourceTree = "<group>"; };
+		06767F0323DA539800BB546A /* ViewPagerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewPagerCollectionViewCell.xib; sourceTree = "<group>"; };
+		06767F0623DA562E00BB546A /* ViewPagerExetenctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPagerExetenctions.swift; sourceTree = "<group>"; };
+		06767F0923DB068300BB546A /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
+		06767F0D23DB06E100BB546A /* SubCategoryViewControllerExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewControllerExtentions.swift; sourceTree = "<group>"; };
+		06767F1223DB077000BB546A /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		06767F1323DB077000BB546A /* SubCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		43971C8F7BF5331FBA00EF48 /* Pods-ProjectMVC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectMVC.debug.xcconfig"; path = "Target Support Files/Pods-ProjectMVC/Pods-ProjectMVC.debug.xcconfig"; sourceTree = "<group>"; };
 		4DB65750E45FEAD942F6EC88 /* Pods-ProjectMVC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectMVC.release.xcconfig"; path = "Target Support Files/Pods-ProjectMVC/Pods-ProjectMVC.release.xcconfig"; sourceTree = "<group>"; };
 		B624FCA2939AD372DEA1C3B0 /* Pods_ProjectMVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectMVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +127,7 @@
 		06252F8223C7246F0091FCCC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				06252F8123C7246F0091FCCC /* ProjectMVC.app */,
+				06252F8123C7246F0091FCCC /* Roya TV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +202,7 @@
 		06252F9D23C729600091FCCC /* Home Page */ = {
 			isa = PBXGroup;
 			children = (
+				06767EFC23DA530500BB546A /* TopViewPager */,
 				06334C0023C7F4DF00872D8D /* Category TableCell */,
 				06252F8823C7246F0091FCCC /* ViewController.swift */,
 				06252FAD23C7472F0091FCCC /* HomeExtentions.swift */,
@@ -278,6 +295,7 @@
 		06334C1B23C8A9A600872D8D /* ProgramData */ = {
 			isa = PBXGroup;
 			children = (
+				06767F0823DB065C00BB546A /* SubCategory */,
 				06334C1623C8A83200872D8D /* ProgrameDataCell */,
 				06334C1C23C8A9D200872D8D /* ProgramDataViewController.swift */,
 				06334C1E23C8AA4E00872D8D /* ProgramDataExtentions.swift */,
@@ -307,6 +325,44 @@
 				06334C2523C8C46A00872D8D /* SearchViewController.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		06767EFC23DA530500BB546A /* TopViewPager */ = {
+			isa = PBXGroup;
+			children = (
+				06767EFF23DA535100BB546A /* viewPagerCell */,
+				06767EFD23DA531D00BB546A /* TopViewPagerViewController.swift */,
+				06767F0623DA562E00BB546A /* ViewPagerExetenctions.swift */,
+			);
+			name = TopViewPager;
+			sourceTree = "<group>";
+		};
+		06767EFF23DA535100BB546A /* viewPagerCell */ = {
+			isa = PBXGroup;
+			children = (
+				06767F0223DA539800BB546A /* ViewPagerCollectionViewCell.swift */,
+				06767F0323DA539800BB546A /* ViewPagerCollectionViewCell.xib */,
+			);
+			name = viewPagerCell;
+			sourceTree = "<group>";
+		};
+		06767F0823DB065C00BB546A /* SubCategory */ = {
+			isa = PBXGroup;
+			children = (
+				06767F0F23DB073600BB546A /* SubCategoryCell */,
+				06767F0923DB068300BB546A /* SubCategoryViewController.swift */,
+				06767F0D23DB06E100BB546A /* SubCategoryViewControllerExtentions.swift */,
+			);
+			name = SubCategory;
+			sourceTree = "<group>";
+		};
+		06767F0F23DB073600BB546A /* SubCategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				06767F1223DB077000BB546A /* SubCategoryCollectionViewCell.swift */,
+				06767F1323DB077000BB546A /* SubCategoryCollectionViewCell.xib */,
+			);
+			name = SubCategoryCell;
 			sourceTree = "<group>";
 		};
 		1E71189CD449E7957D388FF0 /* Pods */ = {
@@ -347,7 +403,7 @@
 			);
 			name = ProjectMVC;
 			productName = "RoyaTV MVVM";
-			productReference = 06252F8123C7246F0091FCCC /* ProjectMVC.app */;
+			productReference = 06252F8123C7246F0091FCCC /* Roya TV.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -389,9 +445,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				06252F9123C724710091FCCC /* LaunchScreen.storyboard in Resources */,
+				06767F0523DA539800BB546A /* ViewPagerCollectionViewCell.xib in Resources */,
 				06334C1323C8A01400872D8D /* ProgramsCollectionViewCell.xib in Resources */,
 				06252F8E23C724710091FCCC /* Assets.xcassets in Resources */,
 				06334C0423C7F52300872D8D /* GategoryCollectionViewCell.xib in Resources */,
+				06767F1523DB077000BB546A /* SubCategoryCollectionViewCell.xib in Resources */,
 				06252F8C23C7246F0091FCCC /* Main.storyboard in Resources */,
 				06334BFF23C7F3B400872D8D /* CategorysTableViewCell.xib in Resources */,
 				06334C1A23C8A85F00872D8D /* ProgramDataCollectionViewCell.xib in Resources */,
@@ -450,20 +508,25 @@
 				06334C1923C8A85F00872D8D /* ProgramDataCollectionViewCell.swift in Sources */,
 				06334C1D23C8A9D200872D8D /* ProgramDataViewController.swift in Sources */,
 				06252F8923C7246F0091FCCC /* ViewController.swift in Sources */,
+				06767F0723DA562E00BB546A /* ViewPagerExetenctions.swift in Sources */,
 				06334C2823C8C47E00872D8D /* NotificationsViewController.swift in Sources */,
 				06334C0823C80B1B00872D8D /* TabBarController.swift in Sources */,
 				06252FAE23C7472F0091FCCC /* HomeExtentions.swift in Sources */,
 				06252FB523C74AE80091FCCC /* ApiURLs.swift in Sources */,
 				06252FB823C74B860091FCCC /* Helper.swift in Sources */,
+				06767F0E23DB06E100BB546A /* SubCategoryViewControllerExtentions.swift in Sources */,
 				06252FB423C74AE80091FCCC /* RequestHandler.swift in Sources */,
 				06334BFE23C7F3B400872D8D /* CategorysTableViewCell.swift in Sources */,
 				06334BF923C7ECC600872D8D /* HomeNewsModel.swift in Sources */,
 				06334C2423C8C45400872D8D /* LiveViewController.swift in Sources */,
 				06252FBA23C74C8E0091FCCC /* HomePreviousNow.swift in Sources */,
 				06252FB323C74AE80091FCCC /* APIHandler.swift in Sources */,
+				06767EFE23DA531D00BB546A /* TopViewPagerViewController.swift in Sources */,
 				06334C0B23C80BAD00872D8D /* SideMenuViewController.swift in Sources */,
 				06334C1523C8A0F400872D8D /* programsExtentions.swift in Sources */,
 				06334C2623C8C46A00872D8D /* SearchViewController.swift in Sources */,
+				06767F0A23DB068300BB546A /* SubCategoryViewController.swift in Sources */,
+				06767F1423DB077000BB546A /* SubCategoryCollectionViewCell.swift in Sources */,
 				06334C1F23C8AA4E00872D8D /* ProgramDataExtentions.swift in Sources */,
 				06334C1223C8A01400872D8D /* ProgramsCollectionViewCell.swift in Sources */,
 				06252F8523C7246F0091FCCC /* AppDelegate.swift in Sources */,
@@ -473,6 +536,7 @@
 				06252FBC23C74E810091FCCC /* Programs.swift in Sources */,
 				06252F8723C7246F0091FCCC /* SceneDelegate.swift in Sources */,
 				06334C0E23C8909E00872D8D /* ProgramsViewController.swift in Sources */,
+				06767F0423DA539800BB546A /* ViewPagerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -602,7 +666,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -625,7 +689,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.makeup.Products.RoyaTV-MVV";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Roya TV";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -644,7 +708,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.makeup.Products.RoyaTV-MVV";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Roya TV";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

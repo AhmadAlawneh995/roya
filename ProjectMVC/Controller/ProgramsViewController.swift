@@ -39,8 +39,12 @@ class ProgramsViewController: UIViewController {
     
     // MARK: setup collection
     func setUpcollectionViews()  {
+        programs?.category?.reverse()
+     
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.semanticContentAttribute = .forceRightToLeft
+
         collectionView.register(ProgramsCollectionViewCell.nib, forCellWithReuseIdentifier: ProgramsCollectionViewCell.identifier)
     }
     
@@ -57,12 +61,19 @@ class ProgramsViewController: UIViewController {
                          sideMenu.view.frame = CGRect(x: UIScreen.main.bounds.size.height/2, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
                          
                          UIView.animate(withDuration: 0.4, animations: {
-                             let window = UIApplication.shared.connectedScenes
-                             .filter({$0.activationState == .foregroundActive})
-                             .map({$0 as? UIWindowScene})
-                             .compactMap({$0})
-                             .first?.windows
-                             .filter({$0.isKeyWindow}).first
+                             let window:UIWindow?
+                                                      if #available(iOS 13.0, *) {
+                                                           window = UIApplication.shared.connectedScenes
+                                                              .filter({$0.activationState == .foregroundActive})
+                                                              .map({$0 as? UIWindowScene})
+                                                              .compactMap({$0})
+                                                              .first?.windows
+                                                              .filter({$0.isKeyWindow}).first
+                                                      } else {
+                                                          // Fallback on earlier versions
+                                                           window = UIApplication.shared.keyWindow!
+
+                                                      }
                              sideMenu.willMove(toParent: self)
                              window?.addSubview(sideMenu.view)
                              self.addChild(sideMenu)
@@ -90,10 +101,12 @@ class ProgramsViewController: UIViewController {
                    strongSelf.programs = value
                    strongSelf.setUpcollectionViews()
                    strongSelf.dismiss()
-                  let indexPath = IndexPath(item: 0, section: 0)
+                //  let indexPath = IndexPath(item: 0, section: 0)
                 
                    DispatchQueue.main.asyncAfter(deadline: .now()) { // Change `2.0` to the
-                    strongSelf.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
+//                    strongSelf.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
+                    let indexPath = IndexPath(item: (strongSelf.programs?.category?.count ?? 0) - 1, section: 0)
+                            strongSelf.collectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
                     strongSelf.collectionView(strongSelf.collectionView, didSelectItemAt: indexPath)
                    }
               

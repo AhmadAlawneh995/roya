@@ -9,7 +9,7 @@
 import Foundation
 // MARK: - ProgramModel
 struct ProgramModel: Codable {
-    let category: [Category]?
+    var category: [Category]?
 }
 
 // MARK: - Category

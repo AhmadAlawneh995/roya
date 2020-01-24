@@ -11,38 +11,8 @@ import FSPagerView
 import Kingfisher
 
 
-// MARK: handle Pager And fill up the data
 
-extension ViewController:FSPagerViewDelegate,FSPagerViewDataSource{
-    
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return 2
-    }
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-      let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        
-        if index == 0 {
-            
-            cell.imageView?.load(url: URL(string: homePreviousNowElements?.items?.now?.programs?.imageURL ?? "")!)
-            cell.textLabel?.text = homePreviousNowElements?.items?.now?.programs?.name
 
-            }
-        else if index == 1{
-            cell.imageView?.load(url: URL(string: homePreviousNowElements?.items?.previous?.programs?.imageURL ?? "")!)
-            cell.textLabel?.text = homePreviousNowElements?.items?.previous?.programs?.name
-
-        }
-
-        cell.imageView?.contentMode = .scaleAspectFit
-
-        cell.textLabel?.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
-        return cell
-
-    }
-    
-    
-    
-}
 
 // MARK: handle table view and fill up the data
 
@@ -59,7 +29,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         cell.categoryTitle.text = homeNewsModel?[indexPath.row].elementTitle
         cell.collectionView.delegate = self
         cell.collectionView.dataSource = self
-        cell.collectionView?.scrollToItem(at: NSIndexPath(item: (homeNewsModel?[indexPath.row].items!.count)! - 1, section: 0) as IndexPath, at: .right, animated: false)
+        cell.collectionView.semanticContentAttribute = .forceRightToLeft
 
         cell.collectionView.register(GategoryCollectionViewCell.nib, forCellWithReuseIdentifier: GategoryCollectionViewCell.identifier)
         cell.collectionView.tag = indexPath.row
@@ -70,7 +40,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return 180
     }
 }
 
@@ -95,9 +65,15 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource,UIC
   
         return cell
     }
+
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 250, height: 200)
-       }
+         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+         let size:CGFloat = (collectionView.frame.size.width - space) / 2.0
+         return CGSize(width: size, height: size / 1.5)
+     }
+
 
 
 }

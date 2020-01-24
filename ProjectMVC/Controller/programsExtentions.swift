@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: handle data to fill the view 
 
-extension ProgramsViewController:UICollectionViewDataSource,UICollectionViewDelegate{
+extension ProgramsViewController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
      func numberOfSections(in collectionView: UICollectionView) -> Int {
          return 1
@@ -24,8 +24,9 @@ extension ProgramsViewController:UICollectionViewDataSource,UICollectionViewDele
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramsCollectionViewCell.identifier, for: indexPath) as! ProgramsCollectionViewCell
-        
+
         cell.programTitle.text = programs?.category?[indexPath.row].name
+        
         cell.selectedCellView.isHidden = true
         
         return cell
@@ -48,13 +49,26 @@ extension ProgramsViewController:UICollectionViewDataSource,UICollectionViewDele
 
             }
 
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: programs?.category?[indexPath.row].programs, userInfo: nil)
-         
+            let categoryID:[String:Any] = ["categoryID":programs?.category?[indexPath.row].categoryID! ?? ""]
+            if programs?.category?[indexPath.row].categoryID == 2 {
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: programs?.category?[indexPath.row].subcategory, userInfo: categoryID)
+            }else{
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: programs?.category?[indexPath.row].programs, userInfo: categoryID)
+            }
 
         }
         
 
         
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramsCollectionViewCell.identifier, for: indexPath) as! ProgramsCollectionViewCell
+
+      let name = programs?.category?[indexPath.row].name
+        let size = (name! as NSString).size(withAttributes: [NSAttributedString.Key.font: cell.programTitle.font!])
+        return CGSize(width:size.width*1.5, height: 30)
+     }
+    
     
 }

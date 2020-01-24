@@ -14,9 +14,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedIndex = 4
-        self.delegate = self
+        self.tabBarController?.delegate = self
         tabBar.itemPositioning = .fill
-        
+        self.tabBar.barTintColor = .black
+     
         NotificationCenter.default.addObserver(self, selector: #selector(self.showSelected(_:)), name: NSNotification.Name(rawValue: "showSelected"), object: nil)
     }
     
@@ -42,12 +43,19 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
                 sideMenu.view.frame = CGRect(x: UIScreen.main.bounds.size.height/2, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
                 
                 UIView.animate(withDuration: 0.4, animations: {
-                    let window = UIApplication.shared.connectedScenes
-                    .filter({$0.activationState == .foregroundActive})
-                    .map({$0 as? UIWindowScene})
-                    .compactMap({$0})
-                    .first?.windows
-                    .filter({$0.isKeyWindow}).first
+                 let window:UIWindow?
+                                             if #available(iOS 13.0, *) {
+                                                  window = UIApplication.shared.connectedScenes
+                                                     .filter({$0.activationState == .foregroundActive})
+                                                     .map({$0 as? UIWindowScene})
+                                                     .compactMap({$0})
+                                                     .first?.windows
+                                                     .filter({$0.isKeyWindow}).first
+                                             } else {
+                                                 // Fallback on earlier versions
+                                                  window = UIApplication.shared.keyWindow!
+
+                                             }
                     sideMenu.willMove(toParent: self)
                     window?.addSubview(sideMenu.view)
                     self.addChild(sideMenu)

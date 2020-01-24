@@ -14,6 +14,7 @@ class ProgramDataViewController: UIViewController {
  
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var supCategoryContanerView: UIView!
     
     var program:[Program]?
     var subCateroy:[Subcategory]?
@@ -23,6 +24,10 @@ class ProgramDataViewController: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.showSpinningWheel(_:)), name: NSNotification.Name(rawValue: "notificationName"), object: nil)
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(self.selectedSub), name: NSNotification.Name(rawValue: "selectedSubCategory"), object: nil)
+        
+        supCategoryContanerView.isHidden = true
 
         setupCollectionView()
     }
@@ -31,9 +36,31 @@ class ProgramDataViewController: UIViewController {
     @objc func showSpinningWheel(_ notification: NSNotification) {
            print(notification.userInfo ?? "")
       
-        program = notification.object as? [Program]
-        collectionView.reloadData()
+        if notification.userInfo?["categoryID"] != nil{
+            let categoryID:Int = notification.userInfo?["categoryID"] as? Int ?? -1
+            if categoryID == 2 {
+                supCategoryContanerView.isHidden = false
+                subCateroy = notification.object as? [Subcategory]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "subCategoryNoti"), object: subCateroy, userInfo: nil)
+
+                
+            }else{
+                supCategoryContanerView.isHidden = true
+                program = notification.object as? [Program]
+                      collectionView.reloadData()
+            }
+        }
+      
        
+    }
+    
+    
+    @objc func selectedSub(_ notification: NSNotification) {
+        if notification.object != nil {
+            program = notification.object as? [Program]
+                                collectionView.reloadData()
+        }
+
     }
     // MARK: setup Collection view 
 

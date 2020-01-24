@@ -13,7 +13,6 @@ class ViewController: UIViewController {
 
     // MARK: definition of ui outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var pagerView: FSPagerView!
     @IBOutlet weak var barLogo: UIBarButtonItem!
     
     // MARK: definition of variables to use
@@ -22,7 +21,6 @@ class ViewController: UIViewController {
     var homeNewsModel:HomeNewsModel?
     var articleMain:MainArticleModel?
     var articles:Articles?
-
 
     
     override func viewDidLoad() {
@@ -50,12 +48,19 @@ class ViewController: UIViewController {
                     sideMenu.view.frame = CGRect(x: UIScreen.main.bounds.size.height/2, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
                     
                     UIView.animate(withDuration: 0.4, animations: {
-                        let window = UIApplication.shared.connectedScenes
-                        .filter({$0.activationState == .foregroundActive})
-                        .map({$0 as? UIWindowScene})
-                        .compactMap({$0})
-                        .first?.windows
-                        .filter({$0.isKeyWindow}).first
+                        let window:UIWindow?
+                                                 if #available(iOS 13.0, *) {
+                                                      window = UIApplication.shared.connectedScenes
+                                                         .filter({$0.activationState == .foregroundActive})
+                                                         .map({$0 as? UIWindowScene})
+                                                         .compactMap({$0})
+                                                         .first?.windows
+                                                         .filter({$0.isKeyWindow}).first
+                                                 } else {
+                                                     // Fallback on earlier versions
+                                                      window = UIApplication.shared.keyWindow!
+
+                                                 }
                         sideMenu.willMove(toParent: self)
                         window?.addSubview(sideMenu.view)
                         self.addChild(sideMenu)
@@ -69,11 +74,7 @@ class ViewController: UIViewController {
     
     // MARK: setup pager to handle top news
     func setUpPager()  {
-        pagerView.delegate = self
-        pagerView.dataSource = self
-        pagerView.isInfinite = true
-        pagerView.automaticSlidingInterval = 3.0
-        pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+   
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CategorysTableViewCell.nib, forCellReuseIdentifier: CategorysTableViewCell.identifier)
@@ -136,6 +137,8 @@ class ViewController: UIViewController {
                                  let data = JSONString.data(using: .utf8)
                                 do {
                                     strongSelf.homePreviousNowElements = try JSONDecoder().decode(HomeModel.self, from: data!)
+                                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setupTop"), object: strongSelf.homePreviousNowElements, userInfo: nil)
+
                                  } catch {
                                  print(error)
                                     
@@ -164,7 +167,6 @@ class ViewController: UIViewController {
                                             do {
                                                 strongSelf.articles = try JSONDecoder().decode(Articles.self, from: data!)
                                                 strongSelf.setUpPager()
-                                                strongSelf.pagerView.reloadData()
                                                 strongSelf.tableView.reloadData()
                                                 strongSelf.dismiss()
 

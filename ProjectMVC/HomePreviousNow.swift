@@ -10,49 +10,69 @@ import Foundation
 
 
 // MARK: - HomeModel
-struct HomeModel: Codable {
-    let elementType: String?
-    let items: Items?
+class HomeModel: Codable {
     let homepageID: Int?
+    let elementType: String?
     let elementTitle: JSONNull?
+    let items: Items?
 
     enum CodingKeys: String, CodingKey {
-        case elementType = "element_type"
-        case items
         case homepageID = "homepage_id"
+        case elementType = "element_type"
         case elementTitle = "element_title"
+        case items
+    }
+
+    init(homepageID: Int?, elementType: String?, elementTitle: JSONNull?, items: Items?) {
+        self.homepageID = homepageID
+        self.elementType = elementType
+        self.elementTitle = elementTitle
+        self.items = items
     }
 }
 
 // MARK: - Items
-struct Items: Codable {
-    let the0: JSONNull?
-    let previous, now: Now?
+class Items: Codable {
+    let previous, now, next, later: Later?
 
-    enum CodingKeys: String, CodingKey {
-        case the0 = "0"
-        case previous, now
+    init(previous: Later?, now: Later?, next: Later?, later: Later?) {
+        self.previous = previous
+        self.now = now
+        self.next = next
+        self.later = later
     }
 }
 
-// MARK: - Now
-struct Now: Codable {
-    let programs: Programs?
+// MARK: - Later
+class Later: Codable {
     let timestamp: Int?
+    let programs: Programs?
+
+    init(timestamp: Int?, programs: Programs?) {
+        self.timestamp = timestamp
+        self.programs = programs
+    }
 }
 
 // MARK: - Programs
-struct Programs: Codable {
-    let reachable: Bool?
+class Programs: Codable {
     let programID: Int?
-    let imageURL: String?
     let name: String?
+    let imageURL: String?
+    let reachable: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case reachable
         case programID = "program_id"
-        case imageURL = "image_url"
         case name
+        case imageURL = "image_url"
+        case reachable
+    }
+
+    init(programID: Int?, name: String?, imageURL: String?, reachable: Bool?) {
+        self.programID = programID
+        self.name = name
+        self.imageURL = imageURL
+        self.reachable = reachable
     }
 }
 
