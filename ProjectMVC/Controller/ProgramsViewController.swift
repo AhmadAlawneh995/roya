@@ -33,9 +33,20 @@ class ProgramsViewController: UIViewController {
         buttonView.addSubview(imageView)
         barLogo.customView = buttonView
         
+        
+
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         let nav =  self.navigationController?.navigationBar
+          nav?.barStyle = UIBarStyle.black
+             nav?.tintColor = UIColor.white
+          nav?.topItem?.title = "البرامج"
+          nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         showLoader()
         getData()
-    }
+      }
     
     // MARK: setup collection
     func setUpcollectionViews()  {

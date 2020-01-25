@@ -33,9 +33,17 @@ class ViewController: UIViewController {
            buttonView.addSubview(imageView)
             barLogo.customView = buttonView
 
+      
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+       let nav =  self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.black
+           nav?.tintColor = UIColor.white
+        nav?.topItem?.title = "الرئيسية"
+        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         showLoader()
         getData()
-        
     }
     
     // MARK: setup side menu to show when click

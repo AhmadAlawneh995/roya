@@ -20,8 +20,17 @@ class SearchViewController: UIViewController {
         let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         buttonView.addSubview(imageView)
         barLogo.customView = buttonView
+        
+
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+           let nav =  self.navigationController?.navigationBar
+            nav?.barStyle = UIBarStyle.black
+               nav?.tintColor = UIColor.white
+            nav?.topItem?.title = "البحث"
+            nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
 
     // MARK: setup side menu
     @IBAction func showSideMenuNav(_ sender: Any) {
